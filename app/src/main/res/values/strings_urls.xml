@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="get_controllers">https://rep.moeka.host/api/v1/controller</string>
+    <string name="get_schemes">https://rep.moeka.host/api/v1/scheme/item</string>
+</resources>

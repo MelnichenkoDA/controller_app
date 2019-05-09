@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="not_found">404</string>
+    <string name="internal_server_error">500</string>
+    <string name="server_not_available">501. May be you are offline?</string>
+    <string name="volley_error">502</string>
+    <string name="other">503</string>
+    <string name="bitmap_error">Failed to get the sign</string>
+</resources>

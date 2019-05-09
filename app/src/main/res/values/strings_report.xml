@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_empty_field">This field cannot be empty!</string>
+    <string name="signature_button">Signature</string>
+    <string name="signature_clear_button">Clear</string>
+    <string name="signature_save_button">Save</string>
+</resources>

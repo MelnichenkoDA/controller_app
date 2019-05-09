@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_empty_password">Enter your password!</string>
+    <string name="error_empty_login">Enter your login!</string>
+    <string name="error_incorrect_input">Incorrect input! Use the only 0-9, a-z, A-Z</string>
+    <string name="wrong_login">Wrong login</string>
+    <string name="wrong_password">Wrong password</string>
+    <string name="input_login">Login:</string>
+    <string name="input_password">Password:</string>
+    <string name="btn_login">Login</string>
+    <string name="no_account_hint">No account yet? Create one</string>
+    <string name="check_box">Show password</string>
+    <string name="progress_message">Authenticating...</string>
+</resources>
