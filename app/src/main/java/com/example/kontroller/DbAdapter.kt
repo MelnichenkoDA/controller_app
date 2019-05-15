@@ -2,21 +2,19 @@ package com.example.kontroller
 
 import android.app.AlertDialog
 import android.content.Context
-import android.util.Log
-import co.metalab.asyncawait.async
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import org.json.JSONObject
 import java.lang.Exception
-import kotlin.math.log
 
 class DbAdapter constructor(context: Context){
 
     private var token: String = ""      //currently is _id field
     private var bAuth = false
-    private val volley = VolleyAdapter(context)
+    private var requestQueue = Volley.newRequestQueue(context)
 
     companion object {
         @Volatile
@@ -58,7 +56,7 @@ class DbAdapter constructor(context: Context){
             }
         )
 
-        volley.addToRequestQueue(jsonRequest)
+        requestQueue.add(jsonRequest)
     }
 
     internal fun initJournalsList(objectsList: MutableList<List<String>>,
@@ -93,7 +91,7 @@ class DbAdapter constructor(context: Context){
                 errorCallback(error.toString())
             }
         )
-        volley.addToRequestQueue(jsonRequest)
+        requestQueue.add(jsonRequest)
     }
 
     internal fun initObjectsList(journal: String, objectsList: MutableList<List<String>>,
@@ -128,7 +126,7 @@ class DbAdapter constructor(context: Context){
                 errorCallback(error.toString())
             }
         )
-        volley.addToRequestQueue(jsonRequest)
+        requestQueue.add(jsonRequest)
     }
 
     internal fun getObjectById(id: String, callback: (json: JSONObject) -> Unit){
@@ -139,22 +137,22 @@ class DbAdapter constructor(context: Context){
                 callback(response)
             },
             Response.ErrorListener { error ->
-                Log.d("ERROR", error.networkResponse.statusCode.toString())
+
             }
         )
 
-        volley.addToRequestQueue(request)
+        requestQueue.add(request)
     }
 
     internal fun sendReport(jsonObject: JSONObject){
         val url = "https://rep.moeka.host/api/v1/journal"
 
         val request = JsonObjectRequest(Request.Method.POST, url, jsonObject,
-            Response.Listener { response ->  Log.d("REPORT:", response.toString())},
-            Response.ErrorListener { error -> Log.d("REPORT:", error.message) }
+            Response.Listener { response ->  },
+            Response.ErrorListener { error -> }
         )
 
-        volley.addToRequestQueue(request)
+        requestQueue.add(request)
     }
 
 
