@@ -76,14 +76,16 @@ class JournalsActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        Log.d("RESULTCODE", requestCode.toString())
+        Log.d("RESULTCODE", resultCode.toString())
         when (requestCode) {
-            0 -> {
+            LOGIN_ACTIVITY_CODE -> {
                 val journalsList = JournalsFragment()
                 supportFragmentManager.beginTransaction()
                     .add(R.id.journals_container, journalsList)
                     .commitAllowingStateLoss()
             }
-            1 -> {
+            REPORT_ACTIVITY_CODE -> {
                 showObjects()
             }
 
@@ -104,7 +106,7 @@ class JournalsActivity : AppCompatActivity() {
 
         bundle.putString("journal_id", currentJournal)
         objectsList.arguments = bundle
-        supportFragmentManager.beginTransaction().replace(R.id.objects_container, objectsList).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.objects_container, objectsList).commitAllowingStateLoss()
     }
 
     fun makeReport(report: String){
