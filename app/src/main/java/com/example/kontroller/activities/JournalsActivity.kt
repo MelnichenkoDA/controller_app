@@ -22,9 +22,7 @@ class JournalsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("JournalsActivity:", "ASDASDASDASDADAD")
         setContentView(R.layout.activity_journals)
-        Log.d("JournalsActivity:", "ASDASDASDASDADAD")
         context = this.applicationContext
         dbAdapter = DbAdapter.getInstance(context)
 
@@ -76,8 +74,6 @@ class JournalsActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        Log.d("RESULTCODE", requestCode.toString())
-        Log.d("RESULTCODE", resultCode.toString())
         when (requestCode) {
             LOGIN_ACTIVITY_CODE -> {
                 val journalsList = JournalsFragment()
