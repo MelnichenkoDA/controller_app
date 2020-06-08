@@ -57,7 +57,6 @@ class ReportActivity : AppCompatActivity() {
     }
 
     fun makeForm(form: JSONObject){
-        Log.d("ASDSDADDSADADASDAD", form.toString())
         report = form
         val parentLayout = findViewById<LinearLayout>(R.id.report_container)
 
